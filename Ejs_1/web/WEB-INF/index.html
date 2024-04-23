@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Gestor de Tareas</title>
+    </head>
+    <body>
+        <h1>Gestor de Tareas</h1>
+        <h2>Nueva tarea</h2>
+        <form action="gestorTareas" method="post">
+            <input type="text" name="tarea">
+            <input type="submit" value="Añadir tarea">
+        </form>
+        <h2>Tareas Pendientes:</h2>
+        <ul>
+            <% 
+            List<String> tareas = (List<String>) session.getAttribute("tareas"); 
+                    if (tareas != null && !tareas.isEmpty()) { 
+                    for (String tarea : tareas) { 
+                    %>
+                    <li><%= tarea %></li>
+                    <% 
+                    } 
+                    } else { 
+                    %>
+                    <li>No hay tareas pendientes.</li>
+                    <% 
+                    } 
+                    %>
+                    </ul>
+                    </body>
+                    </html>
